@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
+  <title>Stencil Component Starter</title>
+
+  <script type="module" src="/build/first-stencil-webcomps-remake.esm.js"></script>
+  <script nomodule src="/build/first-stencil-webcomps-remake.js"></script>
+  <style>
+    body {
+      font-family: sans-serif;
+    }
+
+    .side-nav ul {
+      list-style: none;
+    }
+
+    .side-nav li {
+      margin: 1rem 0;
+    }
+
+    .side-nav a {
+      text-decoration: none;
+      color: black;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Adding a button so we can open the drawer with a listener -->
+  <button class="side-drawer-btn">Open side drawer</button>
+  <cfl-side-drawer title="Main Menu">
+    <nav class="side-nav">
+      <ul>
+        <li><a href="http://google.com">Google</a></li>
+        <li><a href="http://linkedin.com">Linkedin</a></li>
+        <li><a href="http://facebook.com">Facebook</a></li>
+      </ul>
+    </nav>
+  </cfl-side-drawer>
+
+  <script>
+    // Capturing the button element
+    const sideDrawerButton = document.querySelector('.side-drawer-btn')
+    //Capturing our webcomponent
+    const sideDrawer = document.querySelector('cfl-side-drawer')
+
+    // Logic to open the side-drawer
+    sideDrawerButton.addEventListener('click', () => {
+      // We only open if its isopen prop is false
+      // if (!sideDrawer.isopen) {
+      //   // Setting isopen to false once we open the side drawer
+      //   sideDrawer.isopen = true
+      // }
+      sideDrawer.open()
+    })
+  </script>
+</body>
+
+</html>

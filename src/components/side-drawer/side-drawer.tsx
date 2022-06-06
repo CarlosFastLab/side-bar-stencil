@@ -15,7 +15,7 @@ import { Component, Prop, h, State, Method } from '@stencil/core'
     shadow: true
 })
 export class SideDrawer {
-    // Ideal for watching for changes coming from outside the component
+    // Ideal for watching for changes coming from inside the component
     // We do not declare the type since we are already attributing a default state
     @State() showContactInfo = false;
     // Adding the Prop declarator and declaring title as an attribute
@@ -65,13 +65,13 @@ export class SideDrawer {
             <aside>
                 <header>
                     <h1>{this.title}</h1>
-                    {/* we must bind the function to 'this', relating to the class, 
+                    {/* we must bind the function to 'this', relating to the class,
                     otherwise we would refer to this as the btn */}
                     <button onClick={this.onCloseDrawer.bind(this)} class='close-btn'>X</button>
                 </header>
                 <section class='tabs'>
-                    {/* Tabs buttons, responsible for alternating sidebar content 
-                        We are taking advantage that .bind takes two parameters, 
+                    {/* Tabs buttons, responsible for alternating sidebar content
+                        We are taking advantage that .bind takes two parameters,
                         First we pass this, to refer to the class
                         Second is used to pass on the identifier to our onContentChange function
                     */}
